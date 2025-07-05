@@ -54,6 +54,10 @@ An interactive Power BI dashboard was created with:
 - Bonus allocation summaries
 - Slicers for filtering by Region and Department
 
+`HR Dashboard sample`
+![hr dashboard sample](https://github.com/user-attachments/assets/e286bc6c-d663-4013-8090-92e500897258)
+
+
 ## DAX & Power Query Code Samples
 
 ### Assigning Undisclosed Gender
@@ -104,6 +108,7 @@ Total Pay = 'Employee Data'[Salary] + 'Employee Data'[Annual Bonus]
 ## Repository Contents
 
 - `Ejigha_Godswill_Palmoria_GROUP_ANALYSIS.pbix` — Power BI file with all data, model, and dashboard
+- `Hr dashboard sample` - jpg. snapshot of dashboard showing important data and insights.
 
 ## How to Explore
 
@@ -116,4 +121,4 @@ Total Pay = 'Employee Data'[Salary] + 'Employee Data'[Annual Bonus]
 **Ejigha Godswill**  
 HR & Data Analytics Consultant  
 Email: [Godswillejigha6@gmail.com]  
-Portfolio: [your portfolio link]
+Portfolio: [[Ejigha Godswill Portfolio](https://github.com/prideofimo)]
