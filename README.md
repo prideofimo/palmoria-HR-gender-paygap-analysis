@@ -62,32 +62,28 @@ An interactive Power BI dashboard was created with:
 
 ### Assigning Undisclosed Gender
 ```powerquery
-= Table.ReplaceValue(#"PreviousStep", null, "Undisclosed", Replacer.ReplaceValue, {"Gender"})
+= Table.ReplaceValue(#"Change Type","","Undisclosed",Replacer.ReplaceValue,{"Gender"})
 ```
 
 ### Creating Dept Rating (Power Query Custom Column)
 ```powerquery
-= [Department] & " - " & Text.From([Rating])
+= Table.AddColumn(#"Unpivoted Columns", "Dept Rating", each [Department]&"/"&[Attribute])
 ```
 
 ### Calculating Annual Bonus (DAX)
 ```DAX
-Annual Bonus = 'Employee Data'[Salary] * RELATED('Bonus Mapping'[Bonus Rate])
+= Table.AddColumn(#"Replaced Value", "Annual Bonus", each [Salary]*[Bonus Rate])
 ```
 
 ### Calculating Total Pay (DAX)
 ```DAX
-Total Pay = 'Employee Data'[Salary] + 'Employee Data'[Annual Bonus]
+= Table.AddColumn(#"Added Custom", "Total Pay", each [Salary]+[Annual Bonus])
 ```
 
 ### Salary Band (Power Query Conditional Column)
-
-| Condition           | Output            |
-|----------------------|-------------------|
-| Salary <= 20000     | `$10,000–$20,000` |
-| Salary <= 30000     | `$20,000–$30,000` |
-| …                   | …                 |
-| Salary > 120000     | `>$120,000`       |
+``` power query
+if [Salary] <= 30000 then "$20,000 - $30,000" else if [Salary] <= 40000 then "$30,000 - $40,000" else if [Salary] <= 50000 then "$40,000 - $50,000" else if [Salary] <= 60000 then "$50,000 - $60,000" else if [Salary] <= 70000 then "$60,000 - $70,000" else if [Salary] <= 80000 then "$70,000 - $80,000" else if [Salary] <= 90000 then "$80,000 - $90,000" else if [Salary] <= 100000 then "$90,000 - $100,000" else if [Salary] <= 110000 then "$100,000 - $110,000" else if [Salary] <= 120000 then "$110,000 - $120,000" else "Above $120,000")
+```
 
 ## Key Insights
 
